@@ -455,7 +455,7 @@ export function Docs() {
               ${protocol.tokenSymbol} is the protocol token on {protocol.chain.name}. It is not an eTICKER. eTICKER names are the synthetics. What is specified today: {protocol.creationFeeBuybackPercent}% of every {protocol.creationFeeUsdc} {protocol.collateral.symbol} create fee credits a buyback bucket. The other half is protocol revenue. Buyback is owner-triggered, not a schedule. Supply and any incentive role get published with the deployment.
             </p>
             <p className="text-foreground">${protocol.tokenSymbol} contract</p>
-            <p>Not deployed. The address stays on Coming soon until the contract is live and the CA is posted here.</p>
+            <p>0x5cf58da30b62aca1c7a735a680279fbedaa7189c</p>
             <p>
               Collateral for synthetics is {protocol.collateral.symbol}, not ${protocol.tokenSymbol}. The collateral address is {zero}, 6 decimals, on {protocol.chain.name}. Do not send {protocol.collateral.symbol} or ${protocol.tokenSymbol} on another network and expect a vault to see it.
             </p>

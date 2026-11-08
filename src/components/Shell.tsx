@@ -144,7 +144,7 @@ export function Shell() {
         <div className="flex items-center justify-between gap-4 px-5 py-4 sm:px-8">
           <div className="inline-flex items-center gap-1.5 px-2.5 py-1 font-mono text-[12px] text-muted">
             <span className="font-sans tracking-[0.02em]">CA</span>
-            <span className="font-sans tracking-[0.02em]">Coming soon</span>
+            <span className="font-sans tracking-[0.02em]">0x5cf58da30b62aca1c7a735a680279fbedaa7189c</span>
           </div>
           <Link to="/docs" aria-label="Docs" title="Docs" className="text-muted transition-colors hover:text-foreground">
             <DocsIcon className="size-4" />
