@@ -96,7 +96,7 @@ function Embers({ density }: { density: number }) {
       context.clearRect(0, 0, width, height);
       context.globalCompositeOperation = "lighter";
       for (const spark of sparks) {
-        const heightFade = Math.max(0, Math.min(1, (1 - (1 - spark.y / height)) * 1.6)) * spark.life;
+        const heightFade = Math.max(0, Math.min(1, (spark.y / height) * 1.6)) * spark.life;
         const pulse = 0.75 + 0.25 * Math.sin(frame * 0.08 + spark.phase);
         const size = spark.r * 7;
         context.globalAlpha = heightFade * pulse;
