@@ -1,0 +1,225 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Geist Variable";
+  src: url("/fonts/geist.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Geist Mono Variable";
+  src: url("/fonts/geist-mono.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Fraunces Variable";
+  src: url("/fonts/fraunces.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Fraunces Variable";
+  src: url("/fonts/fraunces-italic.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@theme {
+  --color-background: #07080d;
+  --color-foreground: #f3eee6;
+  --color-muted: #8a8fa3;
+  --color-surface: #0f111a;
+  --color-surface-hover: #161926;
+  --color-border: #1f2333;
+  --color-accent: #ff6a3d;
+  --color-accent-foreground: #1a0b06;
+  --color-ember-core: #ffd59e;
+  --color-ember-cool: #c2366b;
+  --color-secondary: #8ef0d6;
+  --font-sans: "Geist Variable", Geist, system-ui, sans-serif;
+  --font-display: "Fraunces Variable", Fraunces, Georgia, "Times New Roman", serif;
+  --font-mono: "Geist Mono Variable", "Geist Mono", ui-monospace, monospace;
+  --radius-md: 6px;
+}
+
+html {
+  background: var(--color-background);
+}
+
+body {
+  margin: 0;
+  min-height: 100svh;
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+::selection {
+  background: color-mix(in oklab, var(--color-accent) 35%, transparent);
+}
+
+.text-ember {
+  background: linear-gradient(100deg, var(--color-ember-core) 0%, var(--color-accent) 48%, var(--color-ember-cool) 100%);
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.bg-ember {
+  background: linear-gradient(
+    100deg,
+    var(--color-ember-core) -20%,
+    var(--color-accent) 45%,
+    color-mix(in oklab, var(--color-accent) 70%, var(--color-ember-cool)) 100%
+  );
+}
+
+.afterglow {
+  background:
+    radial-gradient(
+      ellipse 70% 55% at 50% 118%,
+      color-mix(in oklab, var(--color-accent) 34%, transparent) 0%,
+      color-mix(in oklab, var(--color-ember-cool) 18%, transparent) 38%,
+      transparent 72%
+    ),
+    radial-gradient(ellipse 120% 80% at 50% 100%, #0f1324 0%, var(--color-background) 70%);
+}
+
+.afterglow-band {
+  background:
+    radial-gradient(
+      ellipse 60% 120% at 50% 150%,
+      color-mix(in oklab, var(--color-accent) 26%, transparent) 0%,
+      color-mix(in oklab, var(--color-ember-cool) 12%, transparent) 40%,
+      transparent 75%
+    ),
+    linear-gradient(to bottom, var(--color-background), #0d1020);
+}
+
+.afterglow-horizon {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 26%;
+  background: radial-gradient(
+    ellipse 90% 100% at 50% 100%,
+    color-mix(in oklab, var(--color-accent) 22%, transparent),
+    transparent 70%
+  );
+  animation: afterglow-breathe 9s ease-in-out infinite;
+}
+
+@keyframes afterglow-breathe {
+  0%,
+  100% {
+    opacity: 0.75;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .afterglow-horizon {
+    animation: none;
+  }
+}
+
+.prose-docs p {
+  margin-top: 1rem;
+  color: var(--color-muted);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.prose-docs h2 {
+  margin-top: 3.5rem;
+  scroll-margin-top: 5.5rem;
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: var(--color-foreground);
+}
+
+.prose-docs h3 {
+  margin-top: 2rem;
+  scroll-margin-top: 5.5rem;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--color-foreground);
+}
+
+.prose-docs ul {
+  margin-top: 0.9rem;
+  padding-left: 1.15rem;
+  color: var(--color-muted);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.prose-docs li + li {
+  margin-top: 0.45rem;
+}
+
+.prose-docs code {
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+  color: var(--color-foreground);
+}
+
+.prose-docs a {
+  color: var(--color-foreground);
+  text-underline-offset: 4px;
+}
+
+.prose-docs a:hover {
+  text-decoration: underline;
+}
+
+.prose-docs table {
+  width: 100%;
+  margin-top: 1.25rem;
+  border-collapse: collapse;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.prose-docs th {
+  padding: 0.7rem 0.8rem;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-muted);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.prose-docs td {
+  padding: 0.85rem 0.8rem;
+  border-bottom: 1px solid color-mix(in oklab, var(--color-border) 80%, transparent);
+  vertical-align: top;
+  color: var(--color-muted);
+}
+
+.prose-docs td:first-child {
+  color: var(--color-foreground);
+}
